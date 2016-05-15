@@ -1,0 +1,201 @@
+2014/1/3 江俊達
+-----------------
+整合首頁與會員管理
+
+2014/1/3  張書豪
+------------------
+整合新聞
+
+bike.sql 增加 news table
+
+2014/1/4 郭俊賦
+-----------------------
+整合產品
+
+刪掉 不會用到東西= =
+
+bike.sql 修改 product table 增加 product_type table
+
+增加 index資料夾(內有title.php)
+增加 news資料夾(空)
+增加 member資料夾(空)
+增加 order資料夾(空)
+
+1.建議大家把自己的code 放在同一個資料夾。
+
+2.大家要不要把css 外觀的東西放在同一個資料夾。
+
+3.每個畫面最上面那一欄
+  
+大家都一樣 看要不要用引用的 我有在 index 那個資料夾 寫一個title的  至於連結 到時候大家路徑確定在連
+
+「  
+<nav>
+	<ul class="topstyle">
+    <li ><a href="index.php"><img src="SBike.png" width="193" height="60"/><a href="order_showOrder.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 訂單查詢</a></li>
+    <li ><a href="./product/product_index.php">&nbsp; 商品目錄</a></li>
+    <li ><a href="shopcart.php">&nbsp; 購物車</a></li>
+    <li ><a href="news_index.php">&nbsp; 新聞</a></li>  
+    <li ><a href="member_center.php">&nbsp; 會員專區</a></li> 
+    <li ><a href="order_adminOrder.php">&nbsp; 管理訂單</a></li>
+    
+    <?php
+
+		if(@$_SESSION['account']==""){
+			echo "<li style=\"margin:0 0 0 180px;\"><a href=\"member_register.php\">&nbsp; Register</a></li>";   
+			echo "<li style=\"margin:0 0 0 10 px;\"><a href=\"member_login.php\">&nbsp; Login</a></li>";
+		}
+		else
+		{
+			echo "<li style=\"margin:0 0 0 100px;\">歡迎:".$_SESSION['account']."</li>";   
+			//echo "<li style=\"margin:0 0 0 10 px;\"><a href=\"member_center.php\">會員中心</a></li>";   
+			echo "<li style=\"margin:0 0 0 10 px;\"><a href=\"member_logout.php\"> 登出</a></li>";
+		}
+		
+	?>
+    </ul>
+  </nav>
+」
+4.建議SBike.png放在images這資料夾
+
+
+
+
+2014/1/5 江俊達
+-----------------------
+1.修改所有訂單子系統介面
+2.於index_title.php增加 php判斷邏輯，只有管理員admin登入才看的到「管理訂單」、
+  且非管理員進入會被引導至登入頁面。
+
+3.於訂單查詢及購物車頁面增加判斷邏輯 沒有登入就進入的話會被引導到登入話面
+4.訂單子系統中沒用的圖片
+
+
+2014/1/5 吳昆澤
+-----------------------
+1.member_register.php
+	(a) 調整table顯示方法
+	(b) 新增img:error.png , green.png
+	(c) 限制密碼欄位的輸入
+
+2.member_login.php
+	(a) 調整驗證失敗會再前端顯示
+
+3.index.php
+	(a) 新增session註冊(login_session,authority)
+	(b)剛登入時的if判斷式改用$_SESSION[login_session]
+
+4.member_modify_info.php
+	(a) 調整前端顯示內容,如member_register.php
+	(b) 限制密碼欄位的輸入
+
+5.member_register_finish.php
+	(a) 修正的部分程式碼
+
+6.mysqlconnect,第三行刪除
+
+7.所有member的部分都加入css
+
+8.加入member_view.php(管理者有權限才可看),member_delete.php(管理者有權限才允許),
+
+8.member_center.php
+	(a)加入管理員查詢判斷
+	(b)新增管理後台
+
+
+2014/1/5 23:00江俊達
+-----------------------
+1.
+order_handleCreateOrder.php中
+// 將購物車產品放到訂單後 要清空自己的購物車Start 
+我把那段註解拿掉了
+現在新增完訂單後 會員購物車會清空
+
+
+
+2014/1/5 23:15 江俊達
+-----------------------
+1. 修改shopcart_showShopcartDetail.php
+   
+   當購物車中沒產品時，不會出現 確認訂單連結
+
+
+2014/1/6 張書豪
+--------------------------------------------------
+1. 資料庫增加newsproduct表單，目的是讓新聞和產品連結，請先匯入新的資料庫(bike.sql)
+
+2. 首頁(index.php)增加新聞圖片和日期
+
+3. 新聞頁面(news_detail.php)增加相關產品圖片和連結
+
+4. 新增新聞(news_create_index.php)增加相關產品欄位
+
+5. 新增新聞、修改新聞、刪除新聞要登入admin帳戶才看得到
+
+6. kendoui資料夾為新增新聞和修改新聞會用到的套件，請勿刪除
+   
+
+2014/1/6 13:30 江俊達
+------------------------------------------------
+1. 刪除 order_createOrder.php檔，這檔案是舊的沒用....
+
+2014/1/6 18:45 吳昆澤
+1. 刪除member_register.php的取消按鈕
+2. 刪除member_login.php的返回按鈕
+
+
+2014/1/6 23:47 江俊達
+------------------------------------------------
+1.
+order_showOrderDetail.php 
+輸入匯款帳號的textbox只可輸入數字，且必需輸入5個數字,不可輸入小於5個或是為空（輸入空白鍵會先被取代）
+
+2.
+order_confirmOrder.php 
+電話要為數字、textbox不可為空、否則無法新增訂單（輸入空白鍵會先被取代）
+
+
+
+2014/1/7 00:07 江俊達
+------------------------------------------------
+修改shopcart_deleteShopcart.php
+從購物車刪除產品後 會把本來要購買數量加回產品庫存數量
+
+
+2014/1/7 07:45 江俊達
+------------------------------------------------
+修改order_deleteOrder.php
+從會員刪除訂單後 會把本來要購買數量加回產品庫存數量
+
+2014/1/7 21:18 吳昆澤
+------------------------------------------------
+1.修改member_modify_info.php
+  加入數字限制，及輸入非數字時顯示"只能輸入數字提示"，修改背景
+2.修改member_register.php
+  加入數字限制，及輸入非數字時顯示"只能輸入數字提示"，修改背景
+3.修改member_modify_pwd.php
+  修改背景
+
+2014/1/7 21:41
+----------------------------------
+1.修改order_modifyOrderDetail 使用者輸入欄位防呆
+
+2014/1/7 23:28 吳昆澤
+------------------------------------------------
+1.修改member_modify_info.php
+  除了字元之外，其他按鍵可輸入(tab,backspace,ctrl...ect)
+2.修改member_register.php
+  除了字元之外，其他按鍵可輸入(tab,backspace,ctrl...ect)
+
+2014/1/7 23:48 吳昆澤
+------------------------------------------------
+1.修改member_modify_info.php
+  解決中文輸入問題,在電話欄<input>標籤內加入(style="ime-mode:disabled;")及(onkeyup="this.value=this.value.replace(/[\u4e00-\u9fa5]/g,'')")
+2.修改member_register.php
+  解決中文輸入問題,在電話欄<input>標籤內加入(style="ime-mode:disabled;")及(onkeyup="this.value=this.value.replace(/[\u4e00-\u9fa5]/g,'')")
+3.修改order_modifyOrderDetail.php
+  解決中文輸入問題,在電話欄<input>標籤內加入(style="ime-mode:disabled;")及(onkeyup="this.value=this.value.replace(/[\u4e00-\u9fa5]/g,'')")
+
+2014/1/10 20:54 江俊達
+
+1. 上傳新的bike.sql (今日討論資模時修改的table屬性大小寫一致問題,XXX_ID...etc)  

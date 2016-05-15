@@ -1,0 +1,138 @@
+@import url("LondrinaOutline_Regular/stylesheet.css");
+header {	
+    background: url("../images/page/sbike_m1.jpg");
+    background-size: cover;
+    margin: 0 auto;
+    height: 900px;	
+}
+nav{
+    text-align:left;
+}
+a {
+    color: white;
+}   
+li {
+    display: inline;
+    padding: 0px 10px 0px 10px;
+}
+ul.topstyle{
+    font-family: "LondrinaOutline Regular";
+    font-size: 25px;
+    padding: 10px;
+    background: rgba(0,0,0,0.65);
+}
+footer{
+    background-color:#FFF;
+    color:#000;
+
+}
+.content{
+    padding: 10px;
+    color:#FFF;
+    font-size: 20px;
+    text-align: justify;
+    font-family:"微软雅黑","黑体","宋体";
+    text-align:center;
+}
+.content_title{
+    width:  300px;
+    height: 50px;
+    padding: 7px;
+    border-style: double;
+    border-width: 4px;
+    color:#FFF;
+    font-size: 20px;
+    text-align: justify;
+    font-family:"微软雅黑","黑体","宋体";
+    text-align:center;
+    background: rgba(0,0,0,0.65);
+}
+
+.menu_item{/*如何平均分配*/
+    width:  180px;
+    height: 50px;
+    border: inset;
+    margin:10px 7px 5px 17px;
+    padding: 5px;
+    color:#FFF;
+    font-size: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    font-family:"微软雅黑";
+    cursor: pointer;/*滑鼠游標*/
+}
+input.insert{
+    width:  180px;
+    height: 50px;
+    border: inset;
+    margin:10px 7px 10px 17px;
+    padding: 10px;
+    color:#FFF;
+    font-size: 20px;
+    text-align: center;
+    background: rgba(200,65,0,0.65);
+    font-family:"微软雅黑";
+    cursor: pointer;/*滑鼠游標*/
+}
+div.my_body{
+    width: 1050px;
+    margin: auto;
+}
+div.menu{
+    width: 200px;
+    height: 362px;
+    float: left;
+    text-align: center;
+}
+div.product_list{
+    padding: 0px 0px 0px 25px;
+    width: 800px;
+    height: 362px;
+    float: right;
+    padding-top: 10px;
+}
+div.product{
+    width: 177px;
+    height: 173px;
+    margin: 8px;
+    color: lightyellow;
+    text-align: left;
+    float: left;
+    font-size: 16px;
+    font-family:"微软雅黑","黑体","宋体";
+    background: rgba(0,0,0,0.65);
+}
+img.product_img{
+    width: 100px;
+    height: 100px;
+}
+div.product_word{
+    padding: 1px 0px 3px 5px;
+}
+input.product_item{
+    margin: auto;
+    width:170px;
+    height:23px;
+    color: lightyellow;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 16px;
+    font-family:"微软雅黑","黑体","宋体";
+    background: rgba(0,100,200,0.65);
+    cursor: pointer;
+}
+div.page_list{
+    clear: both;
+    text-align: right;
+    padding-top: 30px;
+}
+a.page_item{
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+}
+span.page_item{
+    color: #fff;
+    font-weight: bold;
+    padding: 4px 6px;
+    background: #4398ce;
+}
